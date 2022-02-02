@@ -1,0 +1,9 @@
+@import "../../common/colors.scss";
+.page_not_found {
+  color: $font_primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px;
+  background-color: #250303;
+}

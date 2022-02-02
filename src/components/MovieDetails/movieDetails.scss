@@ -1,0 +1,37 @@
+@import "../../common/colors.scss";
+
+.movie_details {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 40px 0;
+  color: $font_secondary;
+}
+.movie_details_left_side {
+  .left_info {
+    .title {
+      color: $font_primary;
+      margin-bottom: 25px;
+    }
+    .icons {
+      margin-right: 20px;
+    }
+    span {
+      display: inline-flex;
+      align-items: center;
+    }
+    .description {
+      margin: 20px 0;
+      color: $font_primary;
+      line-height: 1.8;
+    }
+    .deep_info div > span:first-child {
+      width: 100px;
+      padding: 8px 0;
+      font-weight: 600;
+      color: $font_primary;
+    }
+  }
+}
+.movie_details_right_side {
+  margin-left: 40px;
+}
