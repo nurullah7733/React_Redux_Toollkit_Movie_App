@@ -1,12 +1,12 @@
 @import "../../common/colors.scss";
-.card_container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  grid-gap: 15px;
-}
+
 .card_item {
   background: $secondary_color;
   transition: all 0.3s;
+  min-height: 450px;
+  height: 100%;
+  padding: 5px;
+  margin: 5px;
   cursor: pointer;
   &:hover {
     transform: scale(1.1);

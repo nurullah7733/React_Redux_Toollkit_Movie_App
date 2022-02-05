@@ -2,10 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { getAllShows } from "../../features/Movies/movieSlice";
+import Slider from "react-slick";
+
+import Settings from "../../common/settings";
 
 const ShowCardView = ({ movie }) => {
   return (
-    <div>
+    <div className="card_item">
       <Link to={`movie/${movie.imdbID}`}>
         <div className="card_item">
           <div className="card_top">
@@ -30,14 +33,17 @@ const ShowCard = () => {
   return (
     <div>
       <h1 style={{ color: "#fff", padding: "10px 0px 10px 0px" }}>Shows</h1>
+
       <div className="card_container">
-        {getMovies.Response === "True" ? (
-          getMovies.Search.map((movie, index) => (
-            <ShowCardView key={index} movie={movie} />
-          ))
-        ) : (
-          <div className=""></div>
-        )}
+        <Slider {...Settings}>
+          {getMovies.Response === "True" ? (
+            getMovies.Search.map((movie, index) => (
+              <ShowCardView key={index} movie={movie} />
+            ))
+          ) : (
+            <div className=""></div>
+          )}
+        </Slider>
       </div>
     </div>
   );

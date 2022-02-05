@@ -7,15 +7,17 @@ import ShowCard from "../ShowCard/showCard";
 
 const Home = () => {
   const dispatch = useDispatch();
-
+  const movieTerms = "harry";
+  const showTerms = "friends";
   useEffect(() => {
-    dispatch(fatchMovie());
-    dispatch(fatchMovieShows());
+    dispatch(fatchMovie(movieTerms));
+    dispatch(fatchMovieShows(showTerms));
   }, [dispatch]);
 
   return (
     <div>
       <div className="banner_img"></div>
+
       <MovieCard />
       <ShowCard />
     </div>

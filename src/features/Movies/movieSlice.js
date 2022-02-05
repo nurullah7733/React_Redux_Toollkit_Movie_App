@@ -3,21 +3,18 @@ import axios from "../../components/apis/movieApi";
 import APIKey from "../../components/apis/movieApiKeys";
 
 // Movie
-export const fatchMovie = createAsyncThunk("movies/fatchMovie", async () => {
-  const movieCategory = "Harry";
-  const res = await axios.get(
-    `?&apiKey=${APIKey}&s=${movieCategory}&type=movie`
-  );
-  return res.data;
-});
+export const fatchMovie = createAsyncThunk(
+  "movies/fatchMovie",
+  async (terms) => {
+    const res = await axios.get(`?&apiKey=${APIKey}&s=${terms}&type=movie`);
+    return res.data;
+  }
+);
 // Shows
 export const fatchMovieShows = createAsyncThunk(
   "movies/fatchMovieShows",
-  async () => {
-    const movieCategory = "friends";
-    const res = await axios.get(
-      `?&apiKey=${APIKey}&s=${movieCategory}&type=series`
-    );
+  async (terms) => {
+    const res = await axios.get(`?&apiKey=${APIKey}&s=${terms}&type=series`);
     return res.data;
   }
 );
@@ -28,14 +25,6 @@ export const DetailsOfMovieAndShow = createAsyncThunk(
     return res.data;
   }
 );
-
-// export const DetailsOfMovieAndShow = createAsyncThunk(
-//   "movies/DetailsOfMovieAndShow",
-//   async (imdbid) => {
-//     const res = await axios.get(`?&apiKey=${APIKey}&i=${imdbid}&plot=full`);
-//     return res;
-//   }
-// );
 
 const initialState = {
   movies: {},
